@@ -7,7 +7,7 @@ on:
     - cron: "30 2 * * *"
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
@@ -35,6 +35,21 @@ jobs:
           GITHUB_TOKEN: ${{ github.token }}
           GITHUB_REPOSITORY: ${{ github.repository }}
         run: python scripts/convert.py --output site
+
+      - name: Refresh README profile links
+        run: python scripts/update_readme.py --manifest site/manifest.json --readme README.md
+
+      - name: Commit README profile link changes
+        run: |
+          if git diff --quiet -- README.md; then
+            echo "README profile links are up to date."
+          else
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add README.md
+            git commit -m "docs: refresh generated profile links"
+            git push
+          fi
 
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v6
