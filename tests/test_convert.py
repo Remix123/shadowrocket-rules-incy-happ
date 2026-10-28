@@ -13,12 +13,13 @@ class ConverterTests(unittest.TestCase):
     def test_supported_rules_and_general_bypass(self):
         source = """[General]
 skip-proxy = localhost, *.local, 192.168.0.0/16
-bypass-tun = 10.0.0.0/8
+bypass-tun = 10.0.0.0/8,::ffff:0:0/96
 
 [Rule]
 DOMAIN-SUFFIX,example.com,PROXY
 DOMAIN,exact.example.net,DIRECT
 IP-CIDR6,2001:db8::/32,REJECT,no-resolve
+IP-CIDR6,::ffff:192.0.2.0/120,REJECT
 GEOIP,CN,DIRECT
 FINAL,PROXY
 """
@@ -31,9 +32,15 @@ FINAL,PROXY
         self.assertIn("10.0.0.0/8", profile["DirectIp"])
         self.assertIn("192.168.0.0/16", profile["DirectIp"])
         self.assertIn("2001:db8::/32", profile["BlockIp"])
+        self.assertNotIn("::ffff:0:0/96", profile["DirectIp"])
+        self.assertNotIn("::ffff:192.0.2.0/120", profile["BlockIp"])
         self.assertIn("localhost", profile["DirectSites"])
         self.assertEqual(report["lossyMappings"]["DOMAIN exact-vs-suffix distinction"], 1)
         self.assertEqual(report["lossyMappings"]["IP no-resolve option"], 1)
+        self.assertEqual(
+            report["unsupported"]["IPv4-mapped IPv6 range omitted (core rejects IPv4-mapped CIDR prefix)"],
+            2,
+        )
         json.loads(json.dumps(profile))
 
     def test_rule_set_expansion_and_unsupported_operator_reporting(self):

@@ -32,6 +32,7 @@ SOURCE_LICENSE_URL = "https://creativecommons.org/licenses/by-sa/4.0/"
 MAX_DOWNLOAD_BYTES = 8 * 1024 * 1024
 RULESET_HOSTS = {"raw.githubusercontent.com"}
 SUPPORTED_CATEGORIES = ("DirectSites", "DirectIp", "ProxySites", "ProxyIp", "BlockSites", "BlockIp")
+IPV4_MAPPED_IPV6_PREFIX = ipaddress.ip_network("::ffff:0:0/96")
 
 
 class ConversionError(RuntimeError):
@@ -155,6 +156,15 @@ class ProfileConverter:
             item = value.strip()
             if not _is_ip(item):
                 self._record(self.unsupported, self.unsupported_examples, "invalid-ip-or-cidr", origin)
+                return
+            network = ipaddress.ip_network(item, strict=False)
+            if network.version == 6 and network.subnet_of(IPV4_MAPPED_IPV6_PREFIX):
+                self._record(
+                    self.unsupported,
+                    self.unsupported_examples,
+                    "IPv4-mapped IPv6 range omitted (core rejects IPv4-mapped CIDR prefix)",
+                    origin,
+                )
                 return
             field = {"direct": "DirectIp", "proxy": "ProxyIp", "block": "BlockIp"}[category]
         elif kind == "geoip":
@@ -345,6 +355,7 @@ class ProfileConverter:
             "notes": [
                 "INCY and Happ routing profiles group routes into direct/proxy/block arrays; Shadowrocket first-match order is not retained.",
                 "DOMAIN exact matching and DOMAIN-SUFFIX matching share the target profile's domain-list representation.",
+                "IPv4-mapped IPv6 ranges are omitted because the target core interprets them as IPv4 and rejects their IPv6 prefix length.",
                 "Shadowrocket URL Rewrite, MITM, Host, DNS, and policy-group behavior is outside these routing profiles.",
             ],
         }

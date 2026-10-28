@@ -72,6 +72,7 @@ python3 -m unittest discover -s tests -v
 - `DIRECT` 映射到直连，`PROXY` 和自定义策略组映射到代理，`REJECT*` 映射到阻断。策略组会合并到 INCY 的单一代理策略。
 - INCY 的路由 JSON 采用直连、代理、阻断数组，不能保留 Shadowrocket 的逐条 first-match 顺序；`DOMAIN` 精确匹配与 `DOMAIN-SUFFIX` 后缀匹配也无法在当前数组结构中区分。
 - `DOMAIN-KEYWORD`、正则、端口、协议、进程等条件会列在各规则 `.report.json` 的 `unsupported` 中。`[URL Rewrite]`、`[MITM]`、`[Host]` 等非路由功能不会被伪装成已转换。
+- IPv4-mapped IPv6 网段（例如 `::ffff:0:0/96`）会跳过并记入转换报告；INCY/Happ 的核心会把这类地址按 IPv4 解析，导致 `/96` 超出 IPv4 前缀上限。普通 IPv6 CIDR（如 `2001:db8::/32`）仍会保留。
 - 每个 JSON 旁边都有 `.report.json`。网站首页会标出未映射条目数；发布文件前应查看报告。
 - Happ 输出为路由 profile JSON（`happ/<规则名>.json`），不是供 Xray core 直接运行的完整服务器配置。Happ 官方路由导入格式是 `happ://routing/onadd/{base64}`；同目录的 `.link.txt` 文件包含可复制到 Happ 的导入链接。
 - INCY 和 Happ 使用各自的 JSON 文件名与清单入口，方便选择客户端；当前公开文档中的路由 profile 字段兼容。Happ 的导入方式与纯 JSON 文件链接不同，因此页面同时提供 Happ JSON URL 和导入链接。
