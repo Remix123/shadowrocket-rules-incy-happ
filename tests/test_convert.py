@@ -41,6 +41,7 @@ FINAL,PROXY
             report["unsupported"]["IPv4-mapped IPv6 range omitted (core rejects IPv4-mapped CIDR prefix)"],
             2,
         )
+        self.assertTrue(any("::ffff:0:0/96" in example for example in report["unsupportedExamples"]))
         json.loads(json.dumps(profile))
 
     def test_rule_set_expansion_and_unsupported_operator_reporting(self):

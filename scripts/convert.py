@@ -292,12 +292,13 @@ class ProfileConverter:
                         item = raw_value.strip()
                         if not item:
                             continue
+                        origin = f"{source}:{line_number} [{key}]: {item}"
                         if _is_ip(item):
-                            self._add("ip", "DIRECT", item, f"{source}:{line_number} [{key}]")
+                            self._add("ip", "DIRECT", item, origin)
                         elif key == "skip-proxy":
-                            self._add("domain", "DIRECT", item, f"{source}:{line_number} [{key}]", lossy="wildcard skip-proxy pattern" if "*" in item else None)
+                            self._add("domain", "DIRECT", item, origin, lossy="wildcard skip-proxy pattern" if "*" in item else None)
                         else:
-                            self._record(self.unsupported, self.unsupported_examples, "non-IP bypass-tun entry", f"{source}:{line_number}: {item}")
+                            self._record(self.unsupported, self.unsupported_examples, "non-IP bypass-tun entry", origin)
                 else:
                     self.ignored_general[key] += 1
                 continue
