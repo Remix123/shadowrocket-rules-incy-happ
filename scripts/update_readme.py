@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Refresh the README table mapping upstream profiles to published JSON files."""
+"""Refresh separate README lists of upstream profiles and published JSON files."""
 
 from __future__ import annotations
 
@@ -27,7 +27,7 @@ def render_rows(manifest: dict) -> str:
     if not isinstance(profiles, list) or not profiles:
         raise ValueError("manifest must contain a non-empty profiles array")
 
-    rows = []
+    rows = ["### INCY JSON", "", "| 上游规则 | INCY JSON 链接 |", "| --- | --- |"]
     for profile in profiles:
         source_url = profile["source"]
         source_name = unquote(urlsplit(source_url).path.rsplit("/", 1)[-1])
@@ -37,7 +37,18 @@ def render_rows(manifest: dict) -> str:
         rows.append(
             "| "
             f"[{source_name}]({source_href}) | "
-            f"[{inc_json}]({canonical_url(profile['url'])}) | "
+            f"[{inc_json}]({canonical_url(profile['url'])}) |"
+        )
+
+    rows.extend(["", "### Happ JSON", "", "| 上游规则 | Happ JSON 链接 |", "| --- | --- |"])
+    for profile in profiles:
+        source_url = profile["source"]
+        source_name = unquote(urlsplit(source_url).path.rsplit("/", 1)[-1])
+        source_href = UPSTREAM_BLOB_ROOT + quote(source_name)
+        happ_json = profile["happJson"]
+        rows.append(
+            "| "
+            f"[{source_name}]({source_href}) | "
             f"[{happ_json}]({canonical_url(profile['happUrl'])}) |"
         )
     return "\n".join(rows)

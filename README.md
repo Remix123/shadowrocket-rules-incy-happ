@@ -6,25 +6,46 @@
 
 ## 上游规则与 JSON 文件对应关系
 
-下表逐项对应上游 `release` 分支中的 `.conf` 规则文件，以及该规则生成的 INCY、Happ JSON。表格会在每日或手动构建时从最新 manifest 自动刷新。完整转换状态和报告见[在线主页](https://remix123.github.io/shadowrocket-rules-incy-happ/)及 [manifest.json](https://remix123.github.io/shadowrocket-rules-incy-happ/manifest.json)。
+以下按客户端分别列出上游 `release` 分支规则与生成的 JSON 链接；列表会在每日或手动构建时从最新 manifest 自动刷新。完整转换状态和报告见[在线主页](https://remix123.github.io/shadowrocket-rules-incy-happ/)及 [manifest.json](https://remix123.github.io/shadowrocket-rules-incy-happ/manifest.json)。
 
-| 上游规则 | INCY JSON | Happ JSON |
-| --- | --- | --- |
 <!-- generated-profile-links:start -->
-| [lazy.conf](https://github.com/Johnshall/Shadowrocket-ADBlock-Rules-Forever/blob/release/lazy.conf) | [lazy.json](https://remix123.github.io/shadowrocket-rules-incy-happ/lazy.json) | [happ/lazy.json](https://remix123.github.io/shadowrocket-rules-incy-happ/happ/lazy.json) |
-| [lazy_group.conf](https://github.com/Johnshall/Shadowrocket-ADBlock-Rules-Forever/blob/release/lazy_group.conf) | [lazy_group.json](https://remix123.github.io/shadowrocket-rules-incy-happ/lazy_group.json) | [happ/lazy_group.json](https://remix123.github.io/shadowrocket-rules-incy-happ/happ/lazy_group.json) |
-| [sr_ad_only.conf](https://github.com/Johnshall/Shadowrocket-ADBlock-Rules-Forever/blob/release/sr_ad_only.conf) | [sr_ad_only.json](https://remix123.github.io/shadowrocket-rules-incy-happ/sr_ad_only.json) | [happ/sr_ad_only.json](https://remix123.github.io/shadowrocket-rules-incy-happ/happ/sr_ad_only.json) |
-| [sr_adb.conf](https://github.com/Johnshall/Shadowrocket-ADBlock-Rules-Forever/blob/release/sr_adb.conf) | [sr_adb.json](https://remix123.github.io/shadowrocket-rules-incy-happ/sr_adb.json) | [happ/sr_adb.json](https://remix123.github.io/shadowrocket-rules-incy-happ/happ/sr_adb.json) |
-| [sr_backcn.conf](https://github.com/Johnshall/Shadowrocket-ADBlock-Rules-Forever/blob/release/sr_backcn.conf) | [sr_backcn.json](https://remix123.github.io/shadowrocket-rules-incy-happ/sr_backcn.json) | [happ/sr_backcn.json](https://remix123.github.io/shadowrocket-rules-incy-happ/happ/sr_backcn.json) |
-| [sr_backcn_ad.conf](https://github.com/Johnshall/Shadowrocket-ADBlock-Rules-Forever/blob/release/sr_backcn_ad.conf) | [sr_backcn_ad.json](https://remix123.github.io/shadowrocket-rules-incy-happ/sr_backcn_ad.json) | [happ/sr_backcn_ad.json](https://remix123.github.io/shadowrocket-rules-incy-happ/happ/sr_backcn_ad.json) |
-| [sr_cnip.conf](https://github.com/Johnshall/Shadowrocket-ADBlock-Rules-Forever/blob/release/sr_cnip.conf) | [sr_cnip.json](https://remix123.github.io/shadowrocket-rules-incy-happ/sr_cnip.json) | [happ/sr_cnip.json](https://remix123.github.io/shadowrocket-rules-incy-happ/happ/sr_cnip.json) |
-| [sr_cnip_ad.conf](https://github.com/Johnshall/Shadowrocket-ADBlock-Rules-Forever/blob/release/sr_cnip_ad.conf) | [sr_cnip_ad.json](https://remix123.github.io/shadowrocket-rules-incy-happ/sr_cnip_ad.json) | [happ/sr_cnip_ad.json](https://remix123.github.io/shadowrocket-rules-incy-happ/happ/sr_cnip_ad.json) |
-| [sr_direct_banad.conf](https://github.com/Johnshall/Shadowrocket-ADBlock-Rules-Forever/blob/release/sr_direct_banad.conf) | [sr_direct_banad.json](https://remix123.github.io/shadowrocket-rules-incy-happ/sr_direct_banad.json) | [happ/sr_direct_banad.json](https://remix123.github.io/shadowrocket-rules-incy-happ/happ/sr_direct_banad.json) |
-| [sr_proxy_banad.conf](https://github.com/Johnshall/Shadowrocket-ADBlock-Rules-Forever/blob/release/sr_proxy_banad.conf) | [sr_proxy_banad.json](https://remix123.github.io/shadowrocket-rules-incy-happ/sr_proxy_banad.json) | [happ/sr_proxy_banad.json](https://remix123.github.io/shadowrocket-rules-incy-happ/happ/sr_proxy_banad.json) |
-| [sr_top500_banlist.conf](https://github.com/Johnshall/Shadowrocket-ADBlock-Rules-Forever/blob/release/sr_top500_banlist.conf) | [sr_top500_banlist.json](https://remix123.github.io/shadowrocket-rules-incy-happ/sr_top500_banlist.json) | [happ/sr_top500_banlist.json](https://remix123.github.io/shadowrocket-rules-incy-happ/happ/sr_top500_banlist.json) |
-| [sr_top500_banlist_ad.conf](https://github.com/Johnshall/Shadowrocket-ADBlock-Rules-Forever/blob/release/sr_top500_banlist_ad.conf) | [sr_top500_banlist_ad.json](https://remix123.github.io/shadowrocket-rules-incy-happ/sr_top500_banlist_ad.json) | [happ/sr_top500_banlist_ad.json](https://remix123.github.io/shadowrocket-rules-incy-happ/happ/sr_top500_banlist_ad.json) |
-| [sr_top500_whitelist.conf](https://github.com/Johnshall/Shadowrocket-ADBlock-Rules-Forever/blob/release/sr_top500_whitelist.conf) | [sr_top500_whitelist.json](https://remix123.github.io/shadowrocket-rules-incy-happ/sr_top500_whitelist.json) | [happ/sr_top500_whitelist.json](https://remix123.github.io/shadowrocket-rules-incy-happ/happ/sr_top500_whitelist.json) |
-| [sr_top500_whitelist_ad.conf](https://github.com/Johnshall/Shadowrocket-ADBlock-Rules-Forever/blob/release/sr_top500_whitelist_ad.conf) | [sr_top500_whitelist_ad.json](https://remix123.github.io/shadowrocket-rules-incy-happ/sr_top500_whitelist_ad.json) | [happ/sr_top500_whitelist_ad.json](https://remix123.github.io/shadowrocket-rules-incy-happ/happ/sr_top500_whitelist_ad.json) |
+### INCY JSON
+
+| 上游规则 | INCY JSON 链接 |
+| --- | --- |
+| [lazy.conf](https://github.com/Johnshall/Shadowrocket-ADBlock-Rules-Forever/blob/release/lazy.conf) | [lazy.json](https://remix123.github.io/shadowrocket-rules-incy-happ/lazy.json) |
+| [lazy_group.conf](https://github.com/Johnshall/Shadowrocket-ADBlock-Rules-Forever/blob/release/lazy_group.conf) | [lazy_group.json](https://remix123.github.io/shadowrocket-rules-incy-happ/lazy_group.json) |
+| [sr_ad_only.conf](https://github.com/Johnshall/Shadowrocket-ADBlock-Rules-Forever/blob/release/sr_ad_only.conf) | [sr_ad_only.json](https://remix123.github.io/shadowrocket-rules-incy-happ/sr_ad_only.json) |
+| [sr_adb.conf](https://github.com/Johnshall/Shadowrocket-ADBlock-Rules-Forever/blob/release/sr_adb.conf) | [sr_adb.json](https://remix123.github.io/shadowrocket-rules-incy-happ/sr_adb.json) |
+| [sr_backcn.conf](https://github.com/Johnshall/Shadowrocket-ADBlock-Rules-Forever/blob/release/sr_backcn.conf) | [sr_backcn.json](https://remix123.github.io/shadowrocket-rules-incy-happ/sr_backcn.json) |
+| [sr_backcn_ad.conf](https://github.com/Johnshall/Shadowrocket-ADBlock-Rules-Forever/blob/release/sr_backcn_ad.conf) | [sr_backcn_ad.json](https://remix123.github.io/shadowrocket-rules-incy-happ/sr_backcn_ad.json) |
+| [sr_cnip.conf](https://github.com/Johnshall/Shadowrocket-ADBlock-Rules-Forever/blob/release/sr_cnip.conf) | [sr_cnip.json](https://remix123.github.io/shadowrocket-rules-incy-happ/sr_cnip.json) |
+| [sr_cnip_ad.conf](https://github.com/Johnshall/Shadowrocket-ADBlock-Rules-Forever/blob/release/sr_cnip_ad.conf) | [sr_cnip_ad.json](https://remix123.github.io/shadowrocket-rules-incy-happ/sr_cnip_ad.json) |
+| [sr_direct_banad.conf](https://github.com/Johnshall/Shadowrocket-ADBlock-Rules-Forever/blob/release/sr_direct_banad.conf) | [sr_direct_banad.json](https://remix123.github.io/shadowrocket-rules-incy-happ/sr_direct_banad.json) |
+| [sr_proxy_banad.conf](https://github.com/Johnshall/Shadowrocket-ADBlock-Rules-Forever/blob/release/sr_proxy_banad.conf) | [sr_proxy_banad.json](https://remix123.github.io/shadowrocket-rules-incy-happ/sr_proxy_banad.json) |
+| [sr_top500_banlist.conf](https://github.com/Johnshall/Shadowrocket-ADBlock-Rules-Forever/blob/release/sr_top500_banlist.conf) | [sr_top500_banlist.json](https://remix123.github.io/shadowrocket-rules-incy-happ/sr_top500_banlist.json) |
+| [sr_top500_banlist_ad.conf](https://github.com/Johnshall/Shadowrocket-ADBlock-Rules-Forever/blob/release/sr_top500_banlist_ad.conf) | [sr_top500_banlist_ad.json](https://remix123.github.io/shadowrocket-rules-incy-happ/sr_top500_banlist_ad.json) |
+| [sr_top500_whitelist.conf](https://github.com/Johnshall/Shadowrocket-ADBlock-Rules-Forever/blob/release/sr_top500_whitelist.conf) | [sr_top500_whitelist.json](https://remix123.github.io/shadowrocket-rules-incy-happ/sr_top500_whitelist.json) |
+| [sr_top500_whitelist_ad.conf](https://github.com/Johnshall/Shadowrocket-ADBlock-Rules-Forever/blob/release/sr_top500_whitelist_ad.conf) | [sr_top500_whitelist_ad.json](https://remix123.github.io/shadowrocket-rules-incy-happ/sr_top500_whitelist_ad.json) |
+
+### Happ JSON
+
+| 上游规则 | Happ JSON 链接 |
+| --- | --- |
+| [lazy.conf](https://github.com/Johnshall/Shadowrocket-ADBlock-Rules-Forever/blob/release/lazy.conf) | [happ/lazy.json](https://remix123.github.io/shadowrocket-rules-incy-happ/happ/lazy.json) |
+| [lazy_group.conf](https://github.com/Johnshall/Shadowrocket-ADBlock-Rules-Forever/blob/release/lazy_group.conf) | [happ/lazy_group.json](https://remix123.github.io/shadowrocket-rules-incy-happ/happ/lazy_group.json) |
+| [sr_ad_only.conf](https://github.com/Johnshall/Shadowrocket-ADBlock-Rules-Forever/blob/release/sr_ad_only.conf) | [happ/sr_ad_only.json](https://remix123.github.io/shadowrocket-rules-incy-happ/happ/sr_ad_only.json) |
+| [sr_adb.conf](https://github.com/Johnshall/Shadowrocket-ADBlock-Rules-Forever/blob/release/sr_adb.conf) | [happ/sr_adb.json](https://remix123.github.io/shadowrocket-rules-incy-happ/happ/sr_adb.json) |
+| [sr_backcn.conf](https://github.com/Johnshall/Shadowrocket-ADBlock-Rules-Forever/blob/release/sr_backcn.conf) | [happ/sr_backcn.json](https://remix123.github.io/shadowrocket-rules-incy-happ/happ/sr_backcn.json) |
+| [sr_backcn_ad.conf](https://github.com/Johnshall/Shadowrocket-ADBlock-Rules-Forever/blob/release/sr_backcn_ad.conf) | [happ/sr_backcn_ad.json](https://remix123.github.io/shadowrocket-rules-incy-happ/happ/sr_backcn_ad.json) |
+| [sr_cnip.conf](https://github.com/Johnshall/Shadowrocket-ADBlock-Rules-Forever/blob/release/sr_cnip.conf) | [happ/sr_cnip.json](https://remix123.github.io/shadowrocket-rules-incy-happ/happ/sr_cnip.json) |
+| [sr_cnip_ad.conf](https://github.com/Johnshall/Shadowrocket-ADBlock-Rules-Forever/blob/release/sr_cnip_ad.conf) | [happ/sr_cnip_ad.json](https://remix123.github.io/shadowrocket-rules-incy-happ/happ/sr_cnip_ad.json) |
+| [sr_direct_banad.conf](https://github.com/Johnshall/Shadowrocket-ADBlock-Rules-Forever/blob/release/sr_direct_banad.conf) | [happ/sr_direct_banad.json](https://remix123.github.io/shadowrocket-rules-incy-happ/happ/sr_direct_banad.json) |
+| [sr_proxy_banad.conf](https://github.com/Johnshall/Shadowrocket-ADBlock-Rules-Forever/blob/release/sr_proxy_banad.conf) | [happ/sr_proxy_banad.json](https://remix123.github.io/shadowrocket-rules-incy-happ/happ/sr_proxy_banad.json) |
+| [sr_top500_banlist.conf](https://github.com/Johnshall/Shadowrocket-ADBlock-Rules-Forever/blob/release/sr_top500_banlist.conf) | [happ/sr_top500_banlist.json](https://remix123.github.io/shadowrocket-rules-incy-happ/happ/sr_top500_banlist.json) |
+| [sr_top500_banlist_ad.conf](https://github.com/Johnshall/Shadowrocket-ADBlock-Rules-Forever/blob/release/sr_top500_banlist_ad.conf) | [happ/sr_top500_banlist_ad.json](https://remix123.github.io/shadowrocket-rules-incy-happ/happ/sr_top500_banlist_ad.json) |
+| [sr_top500_whitelist.conf](https://github.com/Johnshall/Shadowrocket-ADBlock-Rules-Forever/blob/release/sr_top500_whitelist.conf) | [happ/sr_top500_whitelist.json](https://remix123.github.io/shadowrocket-rules-incy-happ/happ/sr_top500_whitelist.json) |
+| [sr_top500_whitelist_ad.conf](https://github.com/Johnshall/Shadowrocket-ADBlock-Rules-Forever/blob/release/sr_top500_whitelist_ad.conf) | [happ/sr_top500_whitelist_ad.json](https://remix123.github.io/shadowrocket-rules-incy-happ/happ/sr_top500_whitelist_ad.json) |
 <!-- generated-profile-links:end -->
 
 ## 发布到 GitHub Pages
